@@ -10,5 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
+      - uses: actions/cache@v2
+        with:
+          path: ${PUB_CACHE}
+          key: ${PUB_CACHE}
       - run: pub get
       - run: ls -l ${PUB_CACHE}
