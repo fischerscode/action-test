@@ -1,0 +1,12 @@
+dependencies:
+  - name: test
+    type: webjson
+    path: args.version
+    currentVersion: v1.2.3
+    prefix: v
+    url: "https://postman-echo.com/get?version=v1.2.4"
+  - name: traefik
+    type: git
+    repo: traefik/traefik
+    currentVersion: v2.5.2
+    prefix: v
