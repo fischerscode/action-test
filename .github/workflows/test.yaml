@@ -12,7 +12,7 @@ jobs:
       - uses: dart-lang/setup-dart@v1
       - uses: actions/cache@v2
         with:
-          path: ${{PUB_CACHE}}
-          key: ${{PUB_CACHE}}
+          path: ${{env.PUB_CACHE}}
+          key: ${{env.PUB_CACHE}}
       - run: pub get
-      - run: ls -l ${{PUB_CACHE}}
+      - run: ls -l ${{env.PUB_CACHE}}
