@@ -2,12 +2,12 @@ name: Test
 
 on:
   workflow_dispatch:
+  push:
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: fischerscode/UpToDate@v1
-        with:
-          config: uptodate.yaml
+      - uses: dart-lang/setup-dart@v1
+      - run: ls -l ${HOME}/.pub-cache
