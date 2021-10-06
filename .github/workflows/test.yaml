@@ -17,5 +17,5 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           file: Dockerfile
-
+          context: .
           tags: test-image
