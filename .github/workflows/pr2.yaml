@@ -1,9 +1,0 @@
-name: PR test 2
-on:
-  pull_request:
-
-jobs:
-  test-dart:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo 2;
