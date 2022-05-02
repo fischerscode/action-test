@@ -7,6 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: "false"
-        id: thestep
       - run: "true"
-        if:
+        if: ${{ always() && matrix.os == 'ubuntu-latest' }}
