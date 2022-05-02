@@ -8,4 +8,4 @@ jobs:
     steps:
       - run: "false"
       - run: "true"
-        if: ${{ always() && matrix.os == 'ubuntu-latest' }}
+        if: ${{ always() && github.ref == 'refs/heads/master' }}
