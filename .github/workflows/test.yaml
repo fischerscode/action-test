@@ -1,0 +1,11 @@
+name: Test failing
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "false"
+        continue-on-error: true
+      - run: "true"
