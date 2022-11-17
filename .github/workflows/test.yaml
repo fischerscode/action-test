@@ -6,5 +6,6 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      - run: "echo %WINDIR%"
-      - run: "echo %VCToolsRedistDir%"
+      - run: |
+          Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
+          dir
