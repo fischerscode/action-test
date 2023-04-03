@@ -1,11 +1,35 @@
-name: Test VCToolsRedistDir
+name: move tags
+
 on:
-  push:
+  release:
+    types:
+      - "created"
 
 jobs:
-  test:
+  tags-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fabasoad/tagger@feat/support-os
+        with:
+          # The prefix of the semantic tags.
+          # Default: ''
+          prefix: linux
+  tags-windows:
     runs-on: windows-latest
     steps:
-      - run: |
-          Copy-Item (vswhere -latest -find 'VC\Redist\MSVC\*\x64\*\msvcp140.dll') .
-          dir
+      - uses: actions/checkout@v2
+      - uses: fabasoad/tagger@feat/support-os
+        with:
+          # The prefix of the semantic tags.
+          # Default: ''
+          prefix: win
+  tags-macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fabasoad/tagger@feat/support-os
+        with:
+          # The prefix of the semantic tags.
+          # Default: ''
+          prefix: macos
