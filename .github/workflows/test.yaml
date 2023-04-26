@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: fabasoad/tagger@feat/support-os
+      - uses: fischerscode/tagger@test-pr8
         with:
           # The prefix of the semantic tags.
           # Default: ''
@@ -19,7 +19,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: fabasoad/tagger@feat/support-os
+      - uses: fischerscode/tagger@test-pr8
         with:
           # The prefix of the semantic tags.
           # Default: ''
@@ -28,7 +28,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: fabasoad/tagger@feat/support-os
+      - uses: fischerscode/tagger@test-pr8
         with:
           # The prefix of the semantic tags.
           # Default: ''
