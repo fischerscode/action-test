@@ -1,0 +1,18 @@
+name: move tags
+
+on:
+  push:
+
+jobs:
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - id: info
+        run: |
+          bin=${{ runner.temp }}\tagger.exe
+          echo $bin
+          echo "BIN=$bin" >> $GITHUB_OUTPUT
+        shell: sh
+      - run: |
+          echo ${{ steps.info.outputs.BIN }}
+        shell: sh
