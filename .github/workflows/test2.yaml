@@ -16,5 +16,7 @@ jobs:
           dir: ${{ runner.temp }}
         shell: sh
       - run: |
-          echo ${{ steps.info.outputs.BIN }}
+          echo $BIN
+        env:
+          BIN: ${{ steps.info.outputs.BIN }}
         shell: sh
