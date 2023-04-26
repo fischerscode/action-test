@@ -9,9 +9,11 @@ jobs:
     steps:
       - id: info
         run: |
-          bin=${{ runner.temp }}\tagger.exe
+          bin=$dir\\tagger.exe
           echo $bin
           echo "BIN=$bin" >> $GITHUB_OUTPUT
+        env:
+          dir: ${{ runner.temp }}
         shell: sh
       - run: |
           echo ${{ steps.info.outputs.BIN }}
