@@ -7,16 +7,27 @@ jobs:
   test-windows:
     runs-on: windows-latest
     steps:
-      - id: info
+      - name: Collect info
+        id: info
         run: |
-          bin=$dir\\tagger.exe
-          echo $bin
+          bin=$DIR\\tagger.exe
           echo "BIN=$bin" >> $GITHUB_OUTPUT
-        env:
-          dir: ${{ runner.temp }}
         shell: sh
-      - run: |
-          echo $BIN
+        env:
+          DIR: ${{ runner.temp }}
+      - name: Download tagger (Windows)
+        run: |
+          Invoke-WebRequest -URI https://github.com/fischerscode/tagger/releases/download/v0.1.0/tagger.windows.exe -OutFile $BIN
+          echo "Saved to $BIN"
+        shell: pwsh
         env:
           BIN: ${{ steps.info.outputs.BIN }}
+      - run: $BIN -h
+        shell: bash
+        env:
+          INPUTS_TAG: ${{ inputs.tag }}
+          BIN: ${{ steps.info.outputs.BIN }}
+      - run: rm $BIN
         shell: sh
+        env:
+          BIN: ${{ steps.info.outputs.BIN }}
