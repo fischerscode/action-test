@@ -23,7 +23,7 @@ jobs:
         env:
           BIN: ${{ steps.info.outputs.BIN }}
       - run: $BIN -h
-        shell: bash
+        shell: sh
         env:
           INPUTS_TAG: ${{ inputs.tag }}
           BIN: ${{ steps.info.outputs.BIN }}
