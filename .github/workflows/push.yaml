@@ -1,0 +1,16 @@
+on:
+  workflow_dispatch:
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          token: "${{ secrets.BOT_TOKEN }}"
+      - run: echo ${date} > date.txt
+      - name: Run the Action
+        uses: devops-infra/action-commit-push@v0.9.2
+        with:
+          github_token: "${{ secrets.BOT_TOKEN }}"
+          commit_message: "update date.txt"
